@@ -143,6 +143,7 @@ devSSD1331init(void)
 	/*
 	 *	To use fill commands, you will have to issue a command to the display to enable them. See the manual.
 	 */
+
 	writeCommand(kSSD1331CommandFILL);
 	writeCommand(0x01);
 
@@ -161,6 +162,13 @@ devSSD1331init(void)
 	 *	Any post-initialization drawing commands go here.
 	 */
 	//...
+	writeCommand(kSSD1331CommandDRAWRECT);       
+	writeCommand(0x00); //Column Start
+	writeCommand(0x00); //Row Start
+	writeCommand(0x5F); //Column End
+	writeCommand(0x3f); //Row End
+	writeCommand(0xFF); //Line Colour green
+	writeCommand(0xFF); //Fill Colour green
 
 
 
